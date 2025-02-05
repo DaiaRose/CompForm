@@ -1,38 +1,60 @@
 
 function setup() {
-  createCanvas(600, 600);
-  background(220,80,60);
-  frameRate(2);
+  createCanvas(600, 700);
+  background(251,109,39);
+  // img1 =loadImage("AnniAlbers.png")
+
+  frameRate(3);
+
 }
+
 
 function draw() {
-  background(220,80,60);
-  stroke('#fae3cf');
-  strokeWeight(3);
 
-  r = random(30, 80);
-  m = random(50, 80);
-  n = random(30, 100);
-
-  if (mouseIsPressed === true) {
-    fill('#6734eb'); //purple
-  } else {
-    fill('#fae3cf');
-  }
+  stroke('rgb(227,226,221)');
+  strokeWeight(24);
+  line(mouseX, mouseY, pmouseX, pmouseY);
   
-  if (mouseX < 100) {
-    background('#6734eb');//purple
-  }
-  else {
-    background(220,80,60); //orange
-  }
+  
+  stroke('rgb(51,48,46)');
+  strokeWeight(3);
+  line(mouseX+2, mouseY+1, pmouseX+1, pmouseY+1);
 
-  //circles drawn by mouse position, random radius
-  circle(mouseX, mouseY, r);
-  circle(mouseX-50, 100, m);
-  circle(mouseY+30, mouseX+30, n);
-  circle(mouseX+130, mouseY/3, r);
-  circle(mouseY/2, mouseX+100, n);
-  circle(440, mouseY+20, m);
-  circle(mouseX, mouseY/2 + 20, r);
+
+  stroke('rgb(51,48,46)');
+  strokeWeight(3);
+  line(mouseX+6, mouseY+6, pmouseX+6, pmouseY+6);
+
+  stroke('rgb(51,48,46)');
+  strokeWeight(3);
+  line(mouseX-5, mouseY-5, pmouseX-5, pmouseY-5);
 }
+
+
+
+// just of interest. this puts dots where line stops
+
+
+// function draw() {
+//   // img1.resize(600, 0)
+//   // image(img1,-5,-60)
+
+//   stroke('rgb(227,226,221)');
+//   strokeWeight(24);
+//   if (12> abs(mouseX-pmouseX) && 12 > abs(mouseY-pmouseY)) {
+//     line(mouseX, mouseY, pmouseX, pmouseY);
+//   }
+  
+//   stroke('rgb(51,48,46)');
+//   strokeWeight(3);
+//   line(mouseX+2, mouseY+1, pmouseX+1, pmouseY+1);
+
+
+//   stroke('rgb(51,48,46)');
+//   strokeWeight(3);
+//   line(mouseX+6, mouseY+6, pmouseX+6, pmouseY+6);
+
+//   stroke('rgb(51,48,46)');
+//   strokeWeight(3);
+//   line(mouseX-5, mouseY-5, pmouseX-5, pmouseY-5);
+// }
