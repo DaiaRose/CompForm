@@ -26,9 +26,9 @@ function setup() {
 function draw() {
   var r = random(100);
 
-  if (r < 20) {
+  if (r < 10) {
     flash();
-  } else if (r < 40) {
+  } else if (r < 30) {
     tri();
   } else {
     dot();
