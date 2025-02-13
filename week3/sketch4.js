@@ -1,41 +1,42 @@
-//FIND THE MACARONI
+//mountain shapes
 
-var num = 500; // Adjust for density
-var noiseScale = 800, noiseStrength = 3;
-var particleLength = 80; // How long each arc is
+function setup () {
+  createCanvas(600,600);
+  background(163,201,255);
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  noLoop();
-  // background(163,201,255);
-  background(242, 188, 94);
-  noFill();
-  stroke(245, 213, 140, 80); //pasta
-  strokeWeight(7);
-
-  arc(random(10,windowWidth-10), random(10,windowHeight-10), 30, 30,0, PI + QUARTER_PI, "open", 5);
-
-  for (let i = 0; i < num; i++) {
-    drawFlowArc(random(width), random(height));
-  }
-
-  let reloadButton = createButton('Retry');
-  reloadButton.position(10, 10); 
-  reloadButton.mousePressed(() => location.reload());
+  colors=["#778777", "#fcc59a", "#923f07", "#534453", "#c4655e", "#e88c3d", "#1f4e58"]
+  c=0;
+  noiseScale = 0.9;
 }
 
-function drawFlowArc(x, y) {
-  beginShape();
-  for (let j = 0; j < particleLength; j++) {
-    let angle = noise(x / noiseScale, y / noiseScale) * TWO_PI * noiseStrength;
-    let dir = createVector(cos(angle), sin(angle));
 
-    vertex(x, y); // Draw a point in the curve
+function draw () {
 
-    // Move forward along the flow
-    x += dir.x * 10;
-    y += dir.y * 10;
+  background(163,201,255);
+  noStroke();
+
+  for (let h = 200; h < height; h+=60) {
+    let y = h;
+    beginShape(); 
+    fill(colors[c % colors.length]);
+
+    for (let i = 0; i < width; i+=7) {
+      let x = i;
+      let angle = noise(x*noiseScale , y *noiseScale) * TWO_PI;
+      let dir = createVector(cos(angle), sin(angle));
+
+      vertex(x, y); // Draw a point
+
+      // Move along mountain
+      x += dir.x ;
+      y += dir.y * 5;
+
+    }
+    vertex(600, 600);
+    vertex(0, 600);
+
+    endShape(CLOSE);
+    c++;
   }
-  endShape();
-}
 
+}

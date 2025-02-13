@@ -7,7 +7,6 @@ var particleLength = 80; // How long each arc is
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noLoop();
-  // background(163,201,255);
   background(242, 188, 94);
   noFill();
   stroke(245, 213, 140, 80); //pasta
